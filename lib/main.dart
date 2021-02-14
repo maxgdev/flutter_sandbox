@@ -8,7 +8,9 @@ class AnyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Text("ScamDemic!"),
+      home: Scaffold(
+        appBar: AppBar(title: Text('AppBar Title'),),
+      ),
     );
   }
 }
