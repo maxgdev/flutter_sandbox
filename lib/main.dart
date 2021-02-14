@@ -1,17 +1,14 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
-
 void main() {
-  runApp(AnyAppHere());
+  runApp(AnyApp());
 }
 
 // Everythings a Widget. "AnyAppHere" main Widget
-class  AnyAppHere extends StatelessWidget {
+class AnyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text("Plandemic 2020"),
+    return MaterialApp(
+      home: Text("ScamDemic!"),
     );
   }
 }
