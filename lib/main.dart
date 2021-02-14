@@ -10,6 +10,7 @@ class AnyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Text('AppBar Title'),),
+        body: Text("Body Text"),
       ),
     );
   }
