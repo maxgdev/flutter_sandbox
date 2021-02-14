@@ -7,11 +7,6 @@ void main() {
 // Everythings a Widget. "AnyAppHere" main Widget
 class AnyApp extends StatelessWidget {
   
-  void answerQuestions() {
-    print("Button pressed! ");
-    
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -27,15 +22,15 @@ class AnyApp extends StatelessWidget {
             ),
             RaisedButton(
               child: Text("Answer 1"),
-              onPressed: answerQuestions,
+              onPressed: ()=> print("Button 1 pressed! "),
             ),
             RaisedButton(
               child: Text("Answer 2"),
-              onPressed: answerQuestions,
+              onPressed: ()=> print("Button 2 pressed! "),
             ),
             RaisedButton(
               child: Text("Answer 3"),
-              onPressed: answerQuestions,
+              onPressed: ()=> print("Button 3 pressed! "),
             ),
           ],
         ),
