@@ -79,7 +79,7 @@ class AnyAppState extends State<AnyApp> {
     setState(() {
       _questionsIndex = _questionsIndex + 1;
     });
-    print("Question Index: $_questionsIndex of ${_questions.length}");
+    // print("Question Index: $_questionsIndex of ${_questions.length}");
   }
 
   @override
