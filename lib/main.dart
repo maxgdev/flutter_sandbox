@@ -17,32 +17,61 @@ class AnyApp extends StatefulWidget {
 
 class AnyAppState extends State<AnyApp> {
   var _questionsIndex = 0;
-
+  var _totalScore = 0;
   var _questions = [
     {
+      'questionText': 'What\'s your favorite Colour?',
+      'answers': [
+        {'text': 'Black', 'score': 50},
+        {'text': 'Red', 'score': 20},
+        {'text': 'Green', 'score': 40},
+        {'text': 'White', 'score': 10}
+      ]
+    },
+    {
       'questionText': 'What\'s your favorite Food?',
-      'answers': ['Rice', 'Eba', 'Soup', 'Yams']
+      'answers': [
+        {'text': 'Rice', 'score': 50},
+        {'text': 'Eba', 'score': 20},
+        {'text': 'Soup', 'score': 40},
+        {'text': 'Yams', 'score': 10}
+      ]
     },
     {
       'questionText': 'What\'s your favorite Car?',
-      'answers': ['BMW', 'Honda', 'Toyota', 'Porche']
+      'answers': [
+        {'text': 'BMW', 'score': 50},
+        {'text': 'Honda', 'score': 20},
+        {'text': 'Toyota', 'score': 40},
+        {'text': 'Porche', 'score': 10}
+      ]
     },
     {
       'questionText': 'What\'s your favorite Film?',
-      'answers': ['Matrix', 'Black Panther', 'Bleach', 'Mandelorian']
+      'answers': [
+        {'text': 'Matrix', 'score': 50},
+        {'text': 'Black Panther', 'score': 90},
+        {'text': 'Clock Work Orange', 'score': 45},
+        {'text': 'Mandelorian', 'score': 40}
+      ]
     },
     {
       'questionText': 'What\'s your favorite Musician?',
-      'answers': ['Burna Boy', 'Eddie Grant', 'Junior', 'Mice Paris']
+      'answers': [
+        {'text': 'Burna Boy', 'score': 50},
+        {'text': 'Eddie Grant', 'score': 20},
+        {'text': 'Junior', 'score': 40},
+        {'text': 'Mice Paris', 'score': 10}
+      ]
     }
   ];
 
-  void _answerQuestions() {
-    // if (_questionsIndex < questions.length-1) {
+  void _answerQuestions(int score) {
+    _totalScore += score;
+
     setState(() {
       _questionsIndex = _questionsIndex + 1;
     });
-    // }
     print("Question Index: $_questionsIndex of ${_questions.length}");
   }
 
@@ -58,7 +87,8 @@ class AnyAppState extends State<AnyApp> {
                   answerQuestions: _answerQuestions,
                   questions: _questions,
                   questionsIndex: _questionsIndex)
-              : Result()),
+              : Result(_totalScore)
+              ),
     );
   }
 }
