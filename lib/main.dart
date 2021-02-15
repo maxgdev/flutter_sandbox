@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './quiz.dart';
+import './result.dart';
 
 void main() {
   runApp(AnyApp());
@@ -54,16 +55,10 @@ class AnyAppState extends State<AnyApp> {
           ),
           body: _questionsIndex < _questions.length
               ? Quiz(
-                  answerQuestions: _answerQuestions, 
-                  questions:  _questions, 
-                  questionsIndex:  _questionsIndex
-                )
-              : Center(
-                  child: Text(
-                    "All Done!",
-                    style: TextStyle(fontSize: 30),
-                  ),
-                )),
+                  answerQuestions: _answerQuestions,
+                  questions: _questions,
+                  questionsIndex: _questionsIndex)
+              : Result()),
     );
   }
 }
