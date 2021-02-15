@@ -16,43 +16,38 @@ class AnyApp extends StatefulWidget {
 }
 
 class AnyAppState extends State<AnyApp> {
-  var questionIndex = 0;
+  var _questionsIndex = 0;
+
+  var questions = [
+  {
+    'questionText': 'What\'s your favorite Food?',
+    'answers': ['Rice', 'Eba', 'Soup', 'Yams']
+  },
+  {
+    'questionText': 'What\'s your favorite Car?',
+    'answers': ['BMW', 'Honda', 'Toyota', 'Porche']
+  },
+  {
+    'questionText': 'What\'s your favorite Film?',
+    'answers': ['Matrix', 'Black Panther', 'Bleach', 'Mandelorian']
+  },
+  {
+    'questionText': 'What\'s your favorite Musician?',
+    'answers': ['Burna Boy', 'Eddie Grant', 'Junior', 'Mice Paris']
+  }
+];
 
   void _answerQuestions() {
-    setState(() {
-      questionIndex = questionIndex + 1;
-    });
-    print("Question Index: $questionIndex");
+    if (_questionsIndex < questions.length-1) {
+      setState(() {
+        _questionsIndex = _questionsIndex + 1;
+      });
+    }
+    print("Question Index: $_questionsIndex of ${questions.length}");
   }
 
   @override
   Widget build(BuildContext context) {
-    // var questions = [
-    //   'What\'s your favorite Musician?',
-    //   'What\'s your favorite Film?',
-    //   'What\'s your favorite Food?',
-    //   'What\'s your favorite Car?',
-    //   'What\'s your favorite Ice-cream?',
-    // ];
-    var questions = [
-      {
-        'questionText': 'What\'s your favorite Food?',
-        'answers': ['Rice', 'Eba', 'Soup', 'Yams']
-      },
-      {
-        'questionText': 'What\'s your favorite Car?',
-        'answers': ['BMW', 'Honda', 'Toyota', 'Porche']
-      },
-      {
-        'questionText': 'What\'s your favorite Film?',
-        'answers': ['Matrix', 'Black Panther', 'Bleach', 'Mandelorian']
-      },
-      {
-        'questionText': 'What\'s your favorite Musician?',
-        'answers': ['Burna Boy', 'Eddie Grant', 'Junior', 'Mice Paris']
-      }
-    ];
-
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -61,10 +56,10 @@ class AnyAppState extends State<AnyApp> {
         body: Column(
           children: [
             Question(
-              "${questions[questionIndex]['questionText']}",
+              "${questions[_questionsIndex]['questionText']}",
             ),
             // Answer(_answerQuestions),
-            ...(questions[questionIndex]['answers'] as List<String>).map((answer) {
+            ...(questions[_questionsIndex]['answers'] as List<String>).map((answer) {
               return Answer(_answerQuestions, answer);
             }).toList(),
           ],
